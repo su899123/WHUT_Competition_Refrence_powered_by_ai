@@ -1,0 +1,102 @@
+import { _ as _defineProperty } from '../_chunks/dep-22bff531.js';
+import { defineComponent, computed } from 'vue';
+import renderNode from '../utils/render-fn.js';
+import useSizeProps from '../utils/use-size-props.js';
+import '../style/css.js';
+import '../utils/use-common-classname.js';
+import '../utils/config-context.js';
+
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var element = {
+  "tag": "svg",
+  "attrs": {
+    "fill": "none",
+    "viewBox": "0 0 24 24",
+    "width": "1em",
+    "height": "1em"
+  },
+  "children": [{
+    "tag": "path",
+    "attrs": {
+      "fill": "props.filledColor",
+      "d": "M9 3.5H16.71C17.0959 2.61743 17.9751 2 19 2C20.3807 2 21.5 3.11929 21.5 4.5C21.5 5.88071 20.3807 7 19 7C17.9751 7 17.0959 6.38257 16.71 5.5H9V7H6.5V9.5H9V11H16.71C17.0959 10.1174 17.9751 9.5 19 9.5C20.3807 9.5 21.5 10.6193 21.5 12C21.5 13.3807 20.3807 14.5 19 14.5C17.9751 14.5 17.0959 13.8826 16.71 13H9V14.5H6.5V17H9V18.5H16.71C17.0959 17.6174 17.9751 17 19 17C20.3807 17 21.5 18.1193 21.5 19.5C21.5 20.8807 20.3807 22 19 22C17.9751 22 17.0959 21.3826 16.71 20.5H9V22H2V17H4.5V14.5H2V9.5H4.5V7H2V2H9V3.5Z"
+    }
+  }]
+};
+var flowchartFilled = defineComponent({
+  name: "FlowchartFilledIcon",
+  props: {
+    size: {
+      type: String
+    },
+    onClick: {
+      type: Function
+    },
+    fillColor: {
+      type: [Array, String]
+    },
+    strokeColor: {
+      type: [Array, String]
+    },
+    strokeWidth: {
+      type: Number
+    }
+  },
+  setup(props, _ref) {
+    var {
+      attrs
+    } = _ref;
+    var propsSize = computed(() => props.size);
+    var strokeColor1 = computed(() => {
+      if (!props.strokeColor) return "currentColor";
+      return Array.isArray(props.strokeColor) ? props.strokeColor[0] : props.strokeColor;
+    });
+    var strokeColor2 = computed(() => {
+      var _props$strokeColor$;
+      if (!props.strokeColor) return "currentColor";
+      return Array.isArray(props.strokeColor) ? (_props$strokeColor$ = props.strokeColor[1]) !== null && _props$strokeColor$ !== void 0 ? _props$strokeColor$ : props.strokeColor[0] : props.strokeColor;
+    });
+    var fillColor1 = computed(() => {
+      if (!props.fillColor) return "transparent";
+      return Array.isArray(props.fillColor) ? props.fillColor[0] : props.fillColor;
+    });
+    var fillColor2 = computed(() => {
+      var _props$fillColor$;
+      if (!props.fillColor) return "transparent";
+      return Array.isArray(props.fillColor) ? (_props$fillColor$ = props.fillColor[1]) !== null && _props$fillColor$ !== void 0 ? _props$fillColor$ : props.fillColor[0] : props.fillColor;
+    });
+    var filledColor = computed(() => {
+      if (!props.fillColor) return "currentColor";
+      return Array.isArray(props.fillColor) ? props.fillColor[0] : props.fillColor;
+    });
+    var {
+      className,
+      style
+    } = useSizeProps(propsSize);
+    var finalCls = computed(() => ["t-icon", "t-icon-flowchart-filled", className.value]);
+    var finalStyle = computed(() => _objectSpread(_objectSpread({
+      fill: "none"
+    }, style.value), attrs.style));
+    var finalProps = computed(() => ({
+      class: finalCls.value,
+      style: finalStyle.value,
+      onClick: e => {
+        var _props$onClick;
+        return (_props$onClick = props.onClick) === null || _props$onClick === void 0 ? void 0 : _props$onClick.call(props, {
+          e
+        });
+      },
+      strokeColor1: strokeColor1.value,
+      strokeColor2: strokeColor2.value,
+      fillColor1: fillColor1.value,
+      fillColor2: fillColor2.value,
+      strokeWidth: props.strokeWidth || 2,
+      filledColor: filledColor.value
+    }));
+    return () => renderNode(element, finalProps.value);
+  }
+});
+
+export default flowchartFilled;
+//# sourceMappingURL=flowchart-filled.js.map

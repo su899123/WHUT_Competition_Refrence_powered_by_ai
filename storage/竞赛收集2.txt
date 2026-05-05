@@ -1,0 +1,571 @@
+1.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202601/t20260105_1383217.shtml
+{
+  "title": "2026年中国高校计算机大赛-团体程序设计天梯赛",
+  "organizer": null,
+  "level": null,
+  "tracks": null,
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "539755407"
+    }
+  ],
+  "deadline": "2026-03-15",
+  "intro": "武汉理工大学组织的校内选拔赛，旨在选拔30名本科生组成3支队伍参加全国天梯赛。比赛为个人赛制，时长3小时，需在PTA平台进行。",
+  "prev_provincial_date": null,
+  "prev_national_date": "2026-04-18",
+  "file_url": null
+}
+
+
+2.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202601/t20260107_1383342.shtml
+{
+  "title": "第十二届国际高校BIM毕业设计创新大赛（创新赛道）",
+  "organizer": "本科生院、土木工程与建筑学院",
+  "level": null,
+  "tracks": [
+    "人工智能物联网创新应用",
+    "建筑机器人创新应用"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "691404211"
+    }
+  ],
+  "deadline": "2026-01-14",
+  "intro": "武汉理工大学组织的第十二届国际高校BIM毕业设计创新大赛校内选拔，包含人工智能物联网与建筑机器人两个赛项，旨在选拔优秀队伍代表学校参赛。",
+  "prev_provincial_date": null,
+  "prev_national_date": "2026-03-01",
+  "file_url": "https://gxbsxs.glodonedu.com/news/3773848073499980544?type=notice"
+}
+
+
+3.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202601/t20260108_1383540.shtml
+{
+  "title": "第九届中国高校智能机器人创意大赛",
+  "organizer": "中国高校智能机器人创意大赛组委会",
+  "level": null,
+  "tracks": [
+    "主题1：家用智能机器人——让生活更美好",
+    "主题2：魔方机器人——挑战更快",
+    "主题3：智能机器人对抗赛——挑战更强",
+    "专项赛1：基于ROS技术应用的机器人挑战赛",
+    "专项赛2：具身智能挑战赛",
+    "专项赛3：VEX U智能机器人对抗赛",
+    "产教融合赛1：舜宇“未来视界”创意赛",
+    "产教融合赛2：软件系统安全赛",
+    "产教融合赛3：北控水务“智赋生态”创新赛",
+    "产教融合赛4：中兴捧月“星匠师”巧匠精英挑战赛-超级智能体开发大赛",
+    "产教融合赛道5：中国移动“梧桐杯”数智创新大赛-智能体创新大赛",
+    "产教融合赛道6：信捷电气“数智融合”创新赛"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "1072296234"
+    }
+  ],
+  "deadline": "2026-03-31",
+  "intro": "该大赛旨在培养学生提出问题及技术创新能力，涵盖创意设计、竞技、格斗及多项产教融合赛题。校赛初赛需提交设计报告及申报表。",
+  "prev_provincial_date": "2026-06-10",
+  "prev_national_date": "2026-07-12",
+  "file_url": null
+}
+
+
+4.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202602/t20260226_1385066.shtml
+{
+  "title": "第十七届中国大学生服务外包创新创业大赛",
+  "organizer": "中国大学生服务外包创新创业大赛组委会",
+  "level": null,
+  "tracks": [
+    "企业命题类(A类)",
+    "创业实践类(B类)",
+    "OPC创客类(C类)",
+    "人工智能专项赛道(D类)"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "798088303"
+    }
+  ],
+  "deadline": "2026-03-13",
+  "intro": "第十七届中国大学生服务外包创新创业大赛旨在提升学生的校企结合与产业对接能力。大赛分为企业命题、创业实践、OPC创客及腾讯开悟人工智能专项四个类别。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "http://www.fwwb.org.cn/"
+}
+
+
+5.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202602/t20260226_1385070.shtml
+{
+  "title": "第十届全国大学生集成电路创新创业大赛",
+  "organizer": "工业和信息化部人才交流中心",
+  "level": null,
+  "tracks": [
+    "职业技能赛项",
+    "集成电路芯创成果方向"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "991235712"
+    }
+  ],
+  "deadline": "2026-03-07",
+  "intro": "为加强集成电路产业人才培养，大赛设置初赛、分赛区决赛及全国总决赛。涵盖集成电路设计、半导体器件与工艺、芯片应用等多个技术方向，旨在提升学生创新实践能力。",
+  "prev_provincial_date": "2020-06-01 至 2026-07-01",
+  "prev_national_date": "2026-07-20",
+  "file_url": "http://univ.ciciec.com"
+}
+
+
+6.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202602/t20260227_1385130.shtml
+{
+  "title": "第十一届全国大学生油气储运工程设计技能大赛",
+  "organizer": "本科生院、交通与物流工程学院",
+  "level": null,
+  "tracks": [
+    "赛题一：某油田A区块页岩油开发地面集输工程规划设计",
+    "赛题二：某气田K储气库与天然气管网系统联合规划设计"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "955329005"
+    }
+  ],
+  "deadline": "2026-05-02",
+  "intro": "该竞赛旨在提升油气储运工程专业学生的创新设计能力。校赛要求参赛团队根据给定的油气田或储气库基础数据，完成集输工艺、站场设计及经济评价等方案。作品需提交方案设计书及申报书。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "http://www.nogstedc.cn/news/show-2985.html"
+}
+
+
+7.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202602/t20260227_1385164.shtml
+{
+  "title": "第八届“五四杯”全国马克思主义理论类本科生学术论文竞赛",
+  "organizer": "本科生院",
+  "level": null,
+  "tracks": [
+    "习近平新时代中国特色社会主义思想研究",
+    "毛泽东思想和中国特色社会主义理论体系研究",
+    "马克思主义基本原理与经典著作研究",
+    "马克思主义发展史及其问题研究",
+    "马克思主义中国化时代化的历史经验与理论成就研究",
+    "中国式现代化的历史进程与理论内涵研究",
+    "中国共产党的奋斗历程与历史经验研究",
+    "国外马克思主义与国外社会主义思潮研究",
+    "思想政治教育的理论及其实践研究",
+    "新时代好青年与中华民族伟大复兴研究"
+  ],
+  "qq_groups": null,
+  "deadline": "2026-03-09",
+  "intro": "该竞赛旨在选拔优秀的马克思主义理论类本科生学术论文。参赛者需在指定选题方向内自拟题目，提交未公开发表的原创论文（8000-15000字），严禁一稿多投。",
+  "prev_provincial_date": null,
+  "prev_national_date": "2026-04-01",
+  "file_url": null
+}
+
+
+8.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202602/t20260228_1385247.shtml
+{
+  "title": "第十一届全国大学生生命科学竞赛CULSC (创新创业类)",
+  "organizer": "全国大学生生命科学竞赛委员会",
+  "level": null,
+  "tracks": [
+    "创新组",
+    "创业组"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "1081644305"
+    }
+  ],
+  "deadline": "2026-04-20",
+  "intro": "该竞赛面向生物、食品、医学等相关专业本科生，分为创新组（需有学术论文或专利成果）和创业组（需提交创业计划书）。旨在选拔优秀生命科学领域创新创业项目。",
+  "prev_provincial_date": "2026-06",
+  "prev_national_date": "2026-07",
+  "file_url": "https://culsc.cn/"
+}
+
+
+9.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260302_1385318.shtml
+{
+  "title": "第六届国际供应链建模设计大赛",
+  "organizer": "本科生院",
+  "level": null,
+  "tracks": null,
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "1084143163"
+    }
+  ],
+  "deadline": "2026-03-22",
+  "intro": "该竞赛面向全日制在校本科生和研究生，要求以团队形式（3-5人）参赛。参赛队伍需根据提供的苹果公司供应链案例和数据，利用Excel或其他工具进行运输方式选择与库存控制策略分析，撰写方案设计报告。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "https://docs.qq.com/form/page/DYndXYkFqSFBITkZ2"
+}
+
+
+10.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260302_1385330.shtml
+{
+  "title": "第十届米兰设计周-中国高校设计学科师生优秀作品展",
+  "organizer": "本科生院",
+  "level": null,
+  "tracks": [
+    "专项赛场-文创产品设计专项赛",
+    "专项赛场-人工智能+设计专项赛",
+    "专项赛场-公益赛道",
+    "命题赛场",
+    "非命题赛场",
+    "作品创作类-视觉传达/产品设计/环境设计等",
+    "学术论文类"
+  ],
+  "qq_groups": [
+    {
+      "track": "艺设赛道",
+      "group": "747208207"
+    },
+    {
+      "track": "土建赛道",
+      "group": "562081891"
+    }
+  ],
+  "deadline": null,
+  "intro": "该赛事面向设计学科师生，包含专项赛、命题赛及非命题赛。作品类别涵盖视觉传达、产品设计、环境设计、数字媒体及学术论文等，旨在选拔优秀设计作品。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "https://milan-aap.org.cn/#/about?tab=2537"
+}
+
+
+11.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260302_1385334.shtml
+{
+  "title": "第二十八届“外研社·国才杯”全国大学生英语辩论赛",
+  "organizer": "本科生院、外国语学院",
+  "level": null,
+  "tracks": [
+    "英国议会制辩论 (BP赛制)"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "959179782"
+    }
+  ],
+  "deadline": "2026-03-08",
+  "intro": "该赛事为全国大学生英语辩论赛，采用BP英辩赛制，二人一组组队参赛。校赛于3月12日举行，选拔优胜者代表学校参加华南赛区全国选拔赛。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260302_1385334.shtml"
+}
+
+
+12.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260303_1385441.shtml
+{
+  "title": "第十四届全国大学生光电设计竞赛",
+  "organizer": "本科生院、物理与力学学院",
+  "level": null,
+  "tracks": [
+    "创意设计赛道-创意组",
+    "创意设计赛道-初创组",
+    "光学设计赛道"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "524336851"
+    }
+  ],
+  "deadline": "2020-04-25",
+  "intro": "该竞赛包含创意设计和光学设计两大赛道。创意赛道需将光电技术与新一代信息技术结合，分为创意组和初创组；光学赛道为独立竞技类。旨在促进光电学科领域的创新与创业人才培养。",
+  "prev_provincial_date": null,
+  "prev_national_date": "2026-06",
+  "file_url": "http://gd.moocollege.com/"
+}
+
+
+13.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260309_1389300.shtml
+{
+  "title": "2026年（第19届）中国大学生计算机设计大赛",
+  "organizer": "中国大学生计算机设计大赛组织委员会",
+  "level": "A类",
+  "tracks": [
+    "软件应用与开发",
+    "微课与AI辅助教学",
+    "物联网应用与物联网创新转化（创业实践）",
+    "大数据应用",
+    "人工智能应用",
+    "AI+信息可视化设计",
+    "AI+数媒静态设计",
+    "AI+数媒动漫与短片",
+    "AI+数媒游戏与交互设计",
+    "AI+计算机音乐创作",
+    "国际生“AI+汉学”"
+  ],
+  "qq_groups": [
+    {
+      "track": "校赛总群",
+      "group": "743384793"
+    },
+    {
+      "track": "指导老师群",
+      "group": "958141151"
+    },
+    {
+      "track": "学生交流群1",
+      "group": "851372420"
+    },
+    {
+      "track": "学生交流群2",
+      "group": "856647230"
+    },
+    {
+      "track": "学生交流群3",
+      "group": "945747158"
+    },
+    {
+      "track": "学生交流群4",
+      "group": "955311492"
+    }
+  ],
+  "deadline": "2026-04-12",
+  "intro": "该赛事是教育部A类学科竞赛，2026年设11个大类，涵盖软件开发、数媒设计、人工智能等。其中6个AI+数媒类大类需围绕“中国古代建筑成就”主题创作，鼓励使用指定国产AI工具。",
+  "prev_provincial_date": "2026-05-06",
+  "prev_national_date": "2026-07-17 至 2026-08-20",
+  "file_url": "http://jsjds.blcu.edu.cn/"
+}
+
+
+14.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260309_1389362.shtml
+{
+  "title": "2026年全国大学生金相技能大赛",
+  "organizer": "本科生院、材料科学与工程学院",
+  "level": null,
+  "tracks": [
+    "实验技能赛道 (徕卡杯第十五届全国大学生金相技能大赛)",
+    "综合分析赛道 (永新杯第四届全国大学生金相大会)",
+    "创新应用赛道 (第二届全国大学生材料分析大赛)"
+  ],
+  "qq_groups": [
+    {
+      "track": "实验技能赛道",
+      "group": "1009336957"
+    },
+    {
+      "track": "综合分析赛道",
+      "group": "546070673"
+    },
+    {
+      "track": "创新应用赛道",
+      "group": "1076507666"
+    }
+  ],
+  "deadline": "2026-03-15",
+  "intro": "该竞赛包含实验技能、综合分析和创新应用三个赛道。校赛选拔面向材料及相关专业本科生，通过制备竞赛、笔试及现场答辩等方式，选拔优秀选手参加大区赛及复赛。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "https://www.jxds.tech/"
+}
+
+
+15.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260310_1389523.shtml
+{
+  "title": "第二十届CIMC“西门子杯”中国智能制造挑战赛",
+  "organizer": "CIMC“西门子杯”中国智能制造挑战赛全国竞赛组委会",
+  "level": "国家级A类",
+  "tracks": [
+    "智能制造创新研发类-自由探索方向",
+    "智能制造创新研发类-工业硬件研发方向",
+    "智能制造工程设计与应用类-流程行业自动化方向",
+    "智能制造工程设计与应用类-离散行业自动化方向 (逻辑算法)",
+    "智能制造工程设计与应用类-离散行业自动化方向 (工程实践)",
+    "智能制造工程设计与应用类-离散行业运动控制方向",
+    "智能制造工程设计与应用类-信息化网络化方向",
+    "智能制造工程设计与应用类-智能装备设计与数字孪生制造方向",
+    "智能制造工程设计与应用类-精益智造与协作机器人方向",
+    "智能制造工程设计与应用类-智能制造通识方向",
+    "智能制造工程设计与应用类-工业嵌入式系统开发方向",
+    "智能制造工程设计与应用类-智能产线数字孪生设计与开发方向",
+    "工程思政类-可持续发展与ESG方向"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "1072438350"
+    }
+  ],
+  "deadline": "2026-04-30",
+  "intro": "该竞赛是教育部A类国家级赛事，旨在培养智能制造领域优秀人才。2026年设创新研发、工程设计与应用、工程思政三大类别，涵盖逻辑控制、工业网络、数字孪生等多个赛项，模拟真实工业工程项目流程。",
+  "prev_provincial_date": null,
+  "prev_national_date": "2026-08",
+  "file_url": "http://www.siemenscup-cimc.org.cn/"
+}
+
+
+16.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260311_1389763.shtml
+{
+  "title": "2026年中国大学生机械工程创新创意大赛：第三届塑性工程实践与创新赛",
+  "organizer": "本科生院、材料科学与工程学院",
+  "level": null,
+  "tracks": [
+    "本科生组-自主选题",
+    "本科生组-企业指定命题",
+    "研究生组-自主选题",
+    "研究生组-企业指定命题"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "1091869221"
+    }
+  ],
+  "deadline": "2026-04-15",
+  "intro": "该竞赛面向全日制在读本科生和硕士研究生，分为本科生组和研究生组。参赛形式包含自主选题和企业指定命题，旨在考察学生在塑性工程领域的实践能力与创新思维，需提交原创设计方案。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "www.cstp-cms.org.cn/site/content/791.html"
+}
+
+
+17.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260311_1389808.shtml
+{
+  "title": "2026年全国大学生企业竞争模拟大赛",
+  "organizer": "本科生院、创业学院",
+  "level": null,
+  "tracks": [
+    "企业决策赛道",
+    "企业运营赛道",
+    "供应链决策赛道",
+    "数智沙盘赛道"
+  ],
+  "qq_groups": [
+    {
+      "track": "企业决策赛道",
+      "group": "1038027794"
+    },
+    {
+      "track": "企业运营赛道",
+      "group": "1034980329"
+    },
+    {
+      "track": "供应链决策赛道",
+      "group": "1034983064"
+    },
+    {
+      "track": "数智沙盘赛道",
+      "group": "1038028759"
+    }
+  ],
+  "deadline": "2026-03-16",
+  "intro": "该竞赛为团体赛，包含企业决策、企业运营、供应链决策和数智沙盘四个赛道。每队3人，本科生和研究生需分别报名对应组别。旨在通过模拟企业经营，提升学生的决策与运营管理能力。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260311_1389808.shtml"
+}
+
+
+18.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260312_1389937.shtml
+{
+  "title": "2026年中国汽车工程学会巴哈汽车大赛 (智能组)",
+  "organizer": "本科生院、汽车工程学院",
+  "level": null,
+  "tracks": [
+    "机械结构组",
+    "智驾算法组"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "293113056"
+    }
+  ],
+  "deadline": "2026-03-18",
+  "intro": "该赛事为智能巴哈大赛，招募机械结构组（负责线控改装与设计）和智驾算法组（负责感知、规划与控制算法开发）队员。面向理工大在读本科生，需具备相关专业背景或编程基础，通过面试选拔。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260312_1389937.shtml"
+}
+
+
+19.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260312_1390026.shtml
+{
+  "title": "2026年第十二届全国大学生统计建模大赛",
+  "organizer": "本科生院、数学与统计学院",
+  "level": null,
+  "tracks": [
+    "统计建模赛道"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "1022768694"
+    }
+  ],
+  "deadline": "2026年3月23日",
+  "intro": "该竞赛主题为“服务国家战略创新统计赋能”，面向全日制在校本科生。比赛流程包含校内报名、论文撰写及选拔等环节，旨在通过统计建模解决国家战略相关问题，提升学生的数据分析与实践能力。",
+  "prev_provincial_date": null,
+  "prev_national_date": null,
+  "file_url": "http://tjjmds.ai-learning.net/"
+}
+
+
+20.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260313_1390117.shtml
+{
+  "title": "“正大杯”第十六届全国大学生市场调查与分析大赛",
+  "organizer": "中国商业统计学会",
+  "level": null,
+  "tracks": [
+    "自主选题赛道",
+    "企业命题赛道-正大集团",
+    "企业命题赛道-益普索",
+    "企业命题赛道-问卷网",
+    "企业命题赛道-天津龙康食品",
+    "企业命题赛道-同方知网",
+    "企业命题赛道-浙江中国科技五金城集团"
+  ],
+  "qq_groups": [
+    {
+      "track": "总群",
+      "group": "715666009"
+    }
+  ],
+  "deadline": "2026-03-21",
+  "intro": "该竞赛由中国商业统计学会主办，包含校赛、企业命题赛、省赛及全国总决赛。参赛形式涵盖自主选题及企业命题（如正大、益普索等），需提交不超过65页的调查报告，核心调查与分析必须由团队独立完成。",
+  "prev_provincial_date": "2026-04",
+  "prev_national_date": "2026-05",
+  "file_url": "http://www.china-cssc.org/"
+}
+
+
+21.网站：http://i.whut.edu.cn/xxtg/znbm/jwc/202603/t20260317_1390643.shtml
+{
+  "title": "第十九届全国大学生先进成图技术与产品信息建模创新大赛 (机械类)",
+  "organizer": "本科生院、机电工程学院、交通与物流工程学院",
+  "level": null,
+  "tracks": [
+    "机械类"
+  ],
+  "qq_groups": [
+    {
+      "track": "马区交流群",
+      "group": "1084080167"
+    },
+    {
+      "track": "余区交流群",
+      "group": "1065943552"
+    }
+  ],
+  "deadline": "2026-03-24",
+  "intro": "该竞赛面向全校在籍本科生，选拔内容包含几何形体构型分析、二维图纸绘制及三维实体建模等。需自备电脑参赛，绘图软件不限。校赛选拔将参照全国总决赛标准执行。",
+  "prev_provincial_date": "2026-05-29",
+  "prev_national_date": "2026-07-31",
+  "file_url": "http://www.chengtudasai.com/"
+}
