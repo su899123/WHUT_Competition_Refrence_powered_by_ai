@@ -143,7 +143,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { competitionApi, aiApi } from '@/api'
 import { MessagePlugin } from 'tdesign-vue-next'
@@ -216,17 +216,26 @@ async function onSubmit() {
   submitting.value = true
   try {
     const payload = {
-      ...form,
+      title: form.title,
+      level: form.level,
+      category: form.category,
+      organizer: form.organizer,
+      description: form.description,
       summary: form.aiSummary,
       registration_start: form.registration_start || null,
       registration_end: form.registration_end || null,
       competition_date: form.competition_date || null,
+      eligibility: form.eligibility,
+      awards: form.awards,
+      contact_info: form.contact_info,
+      official_url: form.official_url,
+      tags: form.tags,
     }
     if (isEdit.value) {
-      await competitionApi.update(Number(route.params.id), payload)
+      await competitionApi.update(Number(route.params.id), payload as any)
       MessagePlugin.success('修改成功')
     } else {
-      await competitionApi.create(payload)
+      await competitionApi.create(payload as any)
       MessagePlugin.success('创建成功')
     }
     router.push('/admin')

@@ -1,83 +1,80 @@
 <template>
   <div class="calendar-page">
-    <t-card :bordered="false" title="📅 竞赛日历">
-      <template #actions>
-        <t-radio-group v-model="viewMode" variant="default-filled" size="small">
-          <t-radio-button value="month">月视图</t-radio-button>
-          <t-radio-button value="list">列表视图</t-radio-button>
-        </t-radio-group>
-      </template>
-
+    <t-card :bordered="false" title="📅 竞赛日历" class="calendar-card">
+      <!-- 月份切换 -->
       <div class="calendar-header">
-        <t-button variant="text" @click="prevPeriod">
+        <t-button variant="outline" size="small" @click="prevPeriod">
           <t-icon name="chevron-left" />
         </t-button>
         <span class="current-period">{{ currentPeriodLabel }}</span>
-        <t-button variant="text" @click="nextPeriod">
+        <t-button variant="outline" size="small" @click="nextPeriod">
           <t-icon name="chevron-right" />
         </t-button>
-        <t-button variant="text" @click="goToday">今天</t-button>
+        <t-button variant="text" size="small" @click="goToday">今天</t-button>
       </div>
 
-      <!-- 月视图 -->
-      <div v-if="viewMode === 'month'" class="month-grid">
-        <div class="weekday-header">
-          <div v-for="day in weekDays" :key="day" class="weekday-cell">{{ day }}</div>
-        </div>
-        <div class="days-grid">
-          <div
-            v-for="(day, idx) in calendarDays"
-            :key="idx"
-            class="day-cell"
-            :class="{
-              'other-month': !day.isCurrentMonth,
-              'is-today': day.isToday,
-              'has-events': day.events.length > 0,
-            }"
-          >
-            <span class="day-number">{{ day.date }}</span>
-            <div class="day-events">
+      <t-loading :loading="loading" text="加载中...">
+        <div class="calendar-body">
+          <!-- 左侧：本月竞赛序号列表 -->
+          <div class="calendar-sidebar">
+            <div class="sidebar-title">
+              <t-icon name="list" /> 本月竞赛日程
+              <t-tag size="small" theme="primary" variant="light">{{ monthEvents.length }}</t-tag>
+            </div>
+            <div v-if="monthEvents.length === 0" class="sidebar-empty">
+              本月暂无竞赛日程
+            </div>
+            <div class="sidebar-list">
               <div
-                v-for="evt in day.events"
+                v-for="(evt, idx) in monthEvents"
                 :key="evt.id"
-                class="event-dot"
+                class="sidebar-item"
                 @click="goDetail(evt.id)"
-                :title="evt.title"
               >
-                <span class="dot" :class="'dot-' + levelTheme(evt.level)"></span>
-                <span class="event-title">{{ evt.title }}</span>
+                <span class="seq-badge">{{ idx + 1 }}</span>
+                <div class="sidebar-item-info">
+                  <span class="sidebar-item-title">{{ evt.title }}</span>
+                  <span class="sidebar-item-date">{{ evt.date }}</span>
+                </div>
+                <t-tag :theme="levelTheme(evt.level)" variant="light" size="small">
+                  {{ evt.level }}
+                </t-tag>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右侧：日历网格 -->
+          <div class="calendar-grid">
+            <div class="weekday-header">
+              <div v-for="day in weekDays" :key="day" class="weekday-cell">{{ day }}</div>
+            </div>
+            <div class="days-grid">
+              <div
+                v-for="(day, idx) in calendarDays"
+                :key="idx"
+                class="day-cell"
+                :class="{
+                  'other-month': !day.isCurrentMonth,
+                  'is-today': day.isToday,
+                }"
+              >
+                <span class="day-number">{{ day.date }}</span>
+                <div v-if="day.events.length > 0" class="day-dots">
+                  <span
+                    v-for="evt in day.events"
+                    :key="evt.id"
+                    class="day-dot"
+                    :title="evt.title"
+                    @click="goDetail(evt.id)"
+                  >
+                    {{ evt.seq }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- 列表视图 -->
-      <div v-if="viewMode === 'list'" class="event-list">
-        <div v-if="monthEvents.length === 0" class="empty-state">本月暂无竞赛日程</div>
-        <div
-          v-for="evt in monthEvents"
-          :key="evt.id"
-          class="event-item"
-          @click="goDetail(evt.id)"
-        >
-          <div class="event-date">
-            <span class="date-day">{{ dayjs(evt.date).format('DD') }}</span>
-            <span class="date-week">{{ dayjs(evt.date).format('ddd') }}</span>
-          </div>
-          <div class="event-info">
-            <div class="event-name">
-              {{ evt.title }}
-              <t-tag :theme="levelTheme(evt.level)" variant="light" size="small">
-                {{ evt.level }}
-              </t-tag>
-            </div>
-            <div class="event-meta">
-              <span>{{ evt.organizer }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      </t-loading>
     </t-card>
   </div>
 </template>
@@ -90,39 +87,47 @@ import type { Competition } from '@/types'
 import dayjs from 'dayjs'
 
 const router = useRouter()
-const viewMode = ref<'month' | 'list'>('month')
+const loading = ref(true)
 const currentDate = ref(dayjs())
 const competitions = ref<Competition[]>([])
 const weekDays = ['日', '一', '二', '三', '四', '五', '六']
 
-interface CalendarDay {
-  date: number
-  isCurrentMonth: boolean
-  isToday: boolean
-  fullDate: string
-  events: { id: number; title: string; level: string }[]
+interface DayEvent {
+  id: number; title: string; level: string; seq: number
 }
-
+interface CalendarDay {
+  date: number; isCurrentMonth: boolean; isToday: boolean; fullDate: string; events: DayEvent[]
+}
 interface MonthEvent {
-  id: number
-  title: string
-  level: string
-  organizer: string
-  date: string
+  id: number; title: string; level: string; organizer: string; date: string; seq: number
 }
 
 const currentPeriodLabel = computed(() => currentDate.value.format('YYYY年 M月'))
 
-// 预计算：日期 → 事件列表 的映射
-const eventsByDate = computed(() => {
-  const map: Record<string, { id: number; title: string; level: string }[]> = {}
-  for (const c of competitions.value) {
-    for (const d of [c.registration_end, c.competition_date, c.registration_start]) {
-      if (d) {
-        if (!map[d]) map[d] = []
-        map[d].push({ id: c.id, title: c.title, level: c.level })
-      }
-    }
+// 本月事件（排序编号）
+const monthEvents = computed<MonthEvent[]>(() => {
+  const monthPrefix = currentDate.value.format('YYYY-MM')
+  const list = competitions.value
+    .filter((c) => {
+      const d = c.registration_end || c.competition_date || c.registration_start
+      return d ? d.startsWith(monthPrefix) : false
+    })
+    .map((c) => ({
+      id: c.id, title: c.title, level: c.level, organizer: c.organizer,
+      date: (c.registration_end || c.competition_date || c.registration_start)!,
+      seq: 0,
+    }))
+    .sort((a, b) => a.date.localeCompare(b.date))
+  list.forEach((item, idx) => { item.seq = idx + 1 })
+  return list
+})
+
+// 日期 → 序号事件映射
+const dateSeqMap = computed(() => {
+  const map: Record<string, DayEvent[]> = {}
+  for (const evt of monthEvents.value) {
+    if (!map[evt.date]) map[evt.date] = []
+    map[evt.date].push({ id: evt.id, title: evt.title, level: evt.level, seq: evt.seq })
   }
   return map
 })
@@ -133,294 +138,125 @@ const calendarDays = computed<CalendarDay[]>(() => {
   const startDay = start.day()
   const daysInMonth = end.date()
   const today = dayjs().format('YYYY-MM-DD')
-  const evtMap = eventsByDate.value
-
+  const evtMap = dateSeqMap.value
   const days: CalendarDay[] = []
 
-  // 上月填充
   const prevMonthEnd = start.subtract(1, 'day').date()
   for (let i = startDay - 1; i >= 0; i--) {
-    const d = start.subtract(i + 1, 'day')
-    const dateStr = d.format('YYYY-MM-DD')
-    days.push({
-      date: prevMonthEnd - i,
-      isCurrentMonth: false,
-      isToday: false,
-      fullDate: dateStr,
-      events: evtMap[dateStr] || [],
-    })
+    const ds = start.subtract(i + 1, 'day').format('YYYY-MM-DD')
+    days.push({ date: prevMonthEnd - i, isCurrentMonth: false, isToday: false, fullDate: ds, events: evtMap[ds] || [] })
   }
-
-  // 本月
   for (let i = 1; i <= daysInMonth; i++) {
-    const d = start.date(i)
-    const dateStr = d.format('YYYY-MM-DD')
-    days.push({
-      date: i,
-      isCurrentMonth: true,
-      isToday: dateStr === today,
-      fullDate: dateStr,
-      events: evtMap[dateStr] || [],
-    })
+    const ds = start.date(i).format('YYYY-MM-DD')
+    days.push({ date: i, isCurrentMonth: true, isToday: ds === today, fullDate: ds, events: evtMap[ds] || [] })
   }
-
-  // 下月填充
-  const remaining = 42 - days.length
-  for (let i = 1; i <= remaining; i++) {
-    const d = end.add(i, 'day')
-    const dateStr = d.format('YYYY-MM-DD')
-    days.push({
-      date: i,
-      isCurrentMonth: false,
-      isToday: false,
-      fullDate: dateStr,
-      events: evtMap[dateStr] || [],
-    })
+  const rem = 42 - days.length
+  for (let i = 1; i <= rem; i++) {
+    const ds = end.add(i, 'day').format('YYYY-MM-DD')
+    days.push({ date: i, isCurrentMonth: false, isToday: false, fullDate: ds, events: evtMap[ds] || [] })
   }
-
   return days
 })
 
-const monthEvents = computed<MonthEvent[]>(() => {
-  const monthPrefix = currentDate.value.format('YYYY-MM')
-  return competitions.value
-    .filter((c) => {
-      const d = c.registration_end || c.competition_date || c.registration_start
-      if (!d) return false
-      return d.startsWith(monthPrefix)
-    })
-    .map((c) => ({
-      id: c.id,
-      title: c.title,
-      level: c.level,
-      organizer: c.organizer,
-      date: c.registration_end || c.competition_date || c.registration_start || '',
-    }))
-    .sort((a, b) => a.date.localeCompare(b.date))
-})
-
 function levelTheme(level: string) {
-  const map: Record<string, string> = {
-    'A1': 'danger',
-    'A2': 'warning',
-    'A3': 'primary',
-    'B1': 'success',
-    'B2': 'default',
-  }
+  const map: Record<string, string> = { A1: 'danger', A2: 'warning', A3: 'primary', B1: 'success', B2: 'default' }
   return map[level] || 'default'
 }
-
-function prevPeriod() {
-  currentDate.value = currentDate.value.subtract(1, 'month')
-}
-
-function nextPeriod() {
-  currentDate.value = currentDate.value.add(1, 'month')
-}
-
-function goToday() {
-  currentDate.value = dayjs()
-}
-
-function goDetail(id: number) {
-  router.push(`/competition/${id}`)
-}
+function prevPeriod() { currentDate.value = currentDate.value.subtract(1, 'month') }
+function nextPeriod() { currentDate.value = currentDate.value.add(1, 'month') }
+function goToday() { currentDate.value = dayjs() }
+function goDetail(id: number) { router.push(`/competition/${id}`) }
 
 onMounted(async () => {
+  loading.value = true
   try {
-    const { data } = await competitionApi.list({
-      page_size: 100,
-      status: 'active',
-    })
+    const { data } = await competitionApi.list({ page_size: 100, status: 'active' })
     competitions.value = data.items
-  } catch (e) {
-    console.error(e)
-  }
+  } catch (e) { /* ignore */ }
+  finally { loading.value = false }
 })
 </script>
 
 <style scoped>
+.calendar-page { max-width: 100%; }
+.calendar-card { overflow: visible; }
+
 .calendar-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 16px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; margin-bottom: 20px;
 }
+.current-period { font-size: 17px; font-weight: 700; min-width: 130px; text-align: center; color: #333; }
 
-.current-period {
-  font-size: 16px;
-  font-weight: 600;
-  min-width: 120px;
-  text-align: center;
+/* 左右布局 */
+.calendar-body { display: flex; gap: 20px; align-items: flex-start; }
+
+/* 左侧列表 */
+.calendar-sidebar {
+  width: 280px; flex-shrink: 0; border: 1px solid #e7e7e7;
+  border-radius: 10px; overflow: hidden; background: #fff;
 }
-
-.debug-info {
-  text-align: center;
-  padding: 6px 12px;
-  margin-bottom: 12px;
-  background: #e6f4ff;
-  border-radius: 6px;
-  font-size: 13px;
-  color: #0052d9;
+.sidebar-title {
+  display: flex; align-items: center; gap: 8px;
+  padding: 14px 16px; font-weight: 600; font-size: 14px;
+  background: #f8f9fa; border-bottom: 1px solid #e7e7e7;
 }
+.sidebar-empty { padding: 40px 16px; text-align: center; color: #999; font-size: 13px; }
+.sidebar-list { max-height: 540px; overflow-y: auto; }
+.sidebar-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; cursor: pointer; border-bottom: 1px solid #f5f5f5;
+  transition: background 0.15s;
+}
+.sidebar-item:hover { background: #f0f5ff; }
+.sidebar-item:last-child { border-bottom: none; }
+.seq-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: #e34d59; color: #fff; font-size: 12px; font-weight: 700; flex-shrink: 0;
+}
+.sidebar-item-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.sidebar-item-title { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sidebar-item-date { font-size: 11px; color: #999; }
 
+/* 右侧日历 */
+.calendar-grid { flex: 1; min-width: 0; }
 .weekday-header {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
-  font-weight: 600;
-  color: #666;
-  padding: 8px 0;
-  border-bottom: 1px solid #e7e7e7;
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  text-align: center; font-weight: 600; color: #666;
+  padding: 8px 0; border-bottom: 2px solid #e7e7e7; font-size: 13px;
 }
-
-.days-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
+.days-grid { display: grid; grid-template-columns: repeat(7, 1fr); border-left: 1px solid #f0f0f0; border-top: 1px solid #f0f0f0; }
 .day-cell {
-  min-height: 100px;
-  padding: 6px;
-  border: 1px solid #f0f0f0;
-  cursor: default;
-  transition: background 0.2s;
+  aspect-ratio: 1; padding: 3px; border-right: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0; display: flex;
+  flex-direction: column; align-items: center; gap: 1px;
+  cursor: default; position: relative;
 }
-
-.day-cell.other-month {
-  background: #fafafa;
-  opacity: 0.5;
-}
-
-.day-cell.is-today {
-  background: #e6f4ff;
-}
-
+.day-cell.other-month .day-number { color: #ccc; }
+.day-cell.is-today { background: #e6f4ff; }
 .day-cell.is-today .day-number {
-  background: #0052d9;
-  color: #fff;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  background: #0052d9; color: #fff; border-radius: 50%;
+  width: 28px; height: 28px; font-weight: 700;
 }
-
 .day-number {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px; font-weight: 500; width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
 }
-
-.day-events {
-  margin-top: 4px;
+.day-dots { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; margin-top: 1px; }
+.day-dot {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%; background: #e34d59;
+  color: #fff; font-size: 11px; font-weight: 700; cursor: pointer;
+  transition: transform 0.15s, background 0.15s; line-height: 1;
 }
-
-.event-dot {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 1px 0;
-  cursor: pointer;
-  font-size: 11px;
-  overflow: hidden;
-}
-
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.dot-danger { background: #e34d59; }
-.dot-warning { background: #ed7b2f; }
-.dot-primary { background: #0052d9; }
-.dot-success { background: #2ba471; }
-.dot-default { background: #bbb; }
-
-.event-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.more-events {
-  font-size: 11px;
-  color: #0052d9;
-  cursor: pointer;
-}
-
-.event-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 40px;
-  color: #999;
-}
-
-.event-item {
-  display: flex;
-  gap: 16px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #f0f0f0;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.event-item:hover {
-  background: #f5f7fa;
-}
-
-.event-date {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 48px;
-}
-
-.date-day {
-  font-size: 24px;
-  font-weight: 700;
-  color: #0052d9;
-}
-
-.date-week {
-  font-size: 12px;
-  color: #999;
-}
-
-.event-info {
-  flex: 1;
-}
-
-.event-name {
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.event-meta {
-  font-size: 13px;
-  color: #888;
-}
+.day-dot:hover { transform: scale(1.25); background: #c9353f; }
 
 @media (max-width: 768px) {
-  .day-cell {
-    min-height: 60px;
-    padding: 2px;
-  }
-
-  .event-dot .event-title {
-    display: none;
-  }
+  .calendar-body { flex-direction: column-reverse; }
+  .calendar-sidebar { width: 100%; }
+  .sidebar-list { max-height: 200px; }
+  .day-cell { aspect-ratio: auto; min-height: 50px; padding: 2px; }
+  .day-dot { width: 17px; height: 17px; font-size: 9px; }
+  .day-number { font-size: 11px; width: 22px; height: 22px; }
 }
 </style>
