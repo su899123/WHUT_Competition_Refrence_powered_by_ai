@@ -3,7 +3,8 @@ import httpx
 from schemas import AISummaryRequest, AISummaryOut
 
 # DeepSeek API 配置 - 通过环境变量设置
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "your-deepseek-api-key")
+# 使用前请设置: $env:DEEPSEEK_API_KEY = "你的API密钥"
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 DEEPSEEK_API_URL = "https://api.deepseek.com/chat/completions"
 
 SYSTEM_PROMPT = """你是一个专业的大学生竞赛信息整理助手。请从以下竞赛通知文本中提取关键信息，并生成一段简洁的摘要（150字以内）。
