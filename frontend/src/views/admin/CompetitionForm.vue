@@ -178,6 +178,7 @@ const rules = {
 const rawDescription = ref('')
 const aiLoading = ref(false)
 const submitting = ref(false)
+const formRef = ref<any>(null)
 
 async function aiParse() {
   if (!rawDescription.value.trim()) {
@@ -211,6 +212,12 @@ async function aiParse() {
 async function onSubmit() {
   if (!form.title.trim()) {
     MessagePlugin.warning('请输入竞赛名称')
+    return
+  }
+  // 表单规则校验
+  try {
+    await formRef.value?.validate()
+  } catch (err) {
     return
   }
   submitting.value = true

@@ -3,25 +3,15 @@
     <t-header class="app-header">
       <div class="header-content">
         <div class="logo" @click="$router.push('/')">
-          <t-icon name="trophy" size="24px" />
+          <span class="logo-icon">🏆</span>
           <span class="logo-text">大学生竞赛信息平台</span>
         </div>
         <nav class="header-nav">
-          <router-link to="/" class="nav-item" :class="{ active: activeMenu === '/' }">
-            <t-icon name="home" /> 竞赛列表
-          </router-link>
-          <router-link to="/calendar" class="nav-item" :class="{ active: activeMenu === '/calendar' }">
-            <t-icon name="calendar" /> 竞赛日历
-          </router-link>
-          <router-link to="/statistics" class="nav-item" :class="{ active: activeMenu === '/statistics' }">
-            <t-icon name="chart-bar" /> 数据统计
-          </router-link>
-          <router-link to="/compare" class="nav-item" :class="{ active: activeMenu === '/compare' }">
-            <t-icon name="swap" /> 对比分析
-          </router-link>
-          <router-link to="/admin" class="nav-item" :class="{ active: activeMenu === '/admin' }">
-            <t-icon name="setting" /> 后台管理
-          </router-link>
+          <router-link to="/" class="nav-item" :class="{ active: activeMenu === '/' }">📋 竞赛列表</router-link>
+          <router-link to="/calendar" class="nav-item" :class="{ active: activeMenu === '/calendar' }">📅 竞赛日历</router-link>
+          <router-link to="/statistics" class="nav-item" :class="{ active: activeMenu === '/statistics' }">📊 数据统计</router-link>
+          <router-link to="/compare" class="nav-item" :class="{ active: activeMenu === '/compare' }">🔄 对比分析</router-link>
+          <router-link to="/admin" class="nav-item" :class="{ active: activeMenu === '/admin' }">⚙️ 后台管理</router-link>
         </nav>
       </div>
     </t-header>
@@ -49,135 +39,46 @@ const activeMenu = computed(() => {
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+:root { --accent: #1a6fff; --border: #e2e4e9; --radius: 10px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f0f2f5; color: #1a1a2e; }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  background-color: #f5f7fa;
-}
+.t-card { background: #fff !important; border: 1px solid var(--border) !important; border-radius: var(--radius) !important; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.t-card:hover { border-color: var(--accent) !important; }
+.t-card__title, .t-card__header { color: #1a1a2e; font-weight: 600; }
+.t-input__inner, .t-select__wrap { color: #1a1a2e; }
+.t-input__inner::placeholder { color: #aaa; }
+.t-input, .t-select, .t-textarea { background: #fff !important; border-color: var(--border) !important; }
+.t-button--theme-primary { background: var(--accent) !important; border: none !important; color: #fff !important; }
+.t-table { background: #fff !important; }
+.t-table th { background: #f8f9fc !important; color: #555; font-weight: 600; }
+.t-table td { border-color: var(--border) !important; color: #1a1a2e; }
+.t-table tr:hover td { background: #f5f7fa !important; }
+.t-pagination .t-is-current { background: var(--accent) !important; color: #fff !important; }
+.t-alert--warning { background: #fff8e6 !important; border-color: #ffd666 !important; }
+.t-alert__content { color: #8c5a00; }
+.t-divider { border-color: var(--border) !important; }
+.t-tag { border-radius: 6px !important; }
 
-.app-layout {
-  min-height: 100vh;
-}
+.app-layout { min-height: 100vh; }
+.app-header { background: #fff !important; border-bottom: 1px solid var(--border) !important; padding: 0 32px; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.header-content { display: flex; align-items: center; justify-content: space-between; height: 60px; max-width: 1400px; margin: 0 auto; }
+.logo { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+.logo-icon { font-size: 28px; }
+.logo-text { font-size: 18px; font-weight: 700; color: var(--accent); }
+.header-nav { display: flex; align-items: center; gap: 4px; }
+.nav-item { display: flex; align-items: center; gap: 4px; padding: 8px 16px; border-radius: 8px; text-decoration: none; color: #555; font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.nav-item:hover { color: var(--accent); background: #f0f5ff; }
+.nav-item.active { color: var(--accent); background: #e8f0fe; font-weight: 600; }
+.app-content { max-width: 1400px; margin: 0 auto; padding: 24px 32px; min-height: calc(100vh - 120px); }
+.app-footer { background: #fff !important; border-top: 1px solid var(--border) !important; text-align: center; padding: 20px !important; color: #999; font-size: 13px; }
 
-.app-header {
-  background: #fff;
-  border-bottom: 1px solid #e7e7e7;
-  padding: 0 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1400px;
-  margin: 0 auto;
-  height: 64px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  color: #0052d9;
-  flex-shrink: 0;
-}
-
-.logo-text {
-  font-size: 18px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.header-nav {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.nav-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 14px;
-  color: #555;
-  text-decoration: none;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.nav-item:hover {
-  background: #f0f5ff;
-  color: #0052d9;
-}
-
-.nav-item.active {
-  background: #e6f0ff;
-  color: #0052d9;
-  font-weight: 600;
-}
-
-.app-content {
-  max-width: 1400px;
-  margin: 24px auto;
-  padding: 0 24px;
-  min-height: calc(100vh - 64px - 60px);
-}
-
-.app-footer {
-  text-align: center;
-  color: #999;
-  padding: 20px;
-  border-top: 1px solid #e7e7e7;
-  background: #fff;
-}
-
-/* 移动端适配 */
 @media (max-width: 768px) {
-  .header-content {
-    height: auto;
-    flex-direction: column;
-    padding: 8px 12px;
-    gap: 8px;
-  }
-
-  .logo {
-    width: 100%;
-    justify-content: center;
-    padding: 4px 0;
-  }
-
-  .logo-text {
-    font-size: 16px;
-  }
-
-  .header-nav {
-    width: 100%;
-    justify-content: space-around;
-    overflow-x: auto;
-    gap: 0;
-  }
-
-  .nav-item {
-    padding: 8px 10px;
-    font-size: 13px;
-    gap: 3px;
-  }
-
-  .app-content {
-    margin: 12px auto;
-    padding: 0 12px;
-  }
+  .app-header { padding: 0 16px; }
+  .header-content { height: auto; flex-direction: column; gap: 8px; padding: 12px 0; }
+  .header-nav { flex-wrap: wrap; justify-content: center; gap: 2px; }
+  .nav-item { padding: 6px 10px; font-size: 13px; }
+  .logo-text { font-size: 16px; }
+  .app-content { padding: 16px; }
 }
 </style>

@@ -5,7 +5,7 @@ export interface Competition {
   category: string
   organizer: string
   description: string
-  summary: string
+  summary: string | null
   registration_start: string | null
   registration_end: string | null
   competition_date: string | null
@@ -30,6 +30,7 @@ export interface CompetitionCreate {
   category: string
   organizer: string
   description: string
+  summary?: string
   registration_start: string | null
   registration_end: string | null
   competition_date: string | null

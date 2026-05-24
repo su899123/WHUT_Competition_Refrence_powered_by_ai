@@ -53,4 +53,15 @@ export const aiApi = {
   summarize(description: string) {
     return api.post<AISummaryResult>('/ai/summarize', { description })
   },
+  chat(competitionId: number, message: string, enableSearch: boolean = false) {
+    return api.post<{ reply: string }>('/ai/chat', {
+      competition_id: competitionId,
+      message,
+      enable_search: enableSearch,
+    })
+  },
+  compare(ids: number[], dimensions: string[]) {
+    return api.post<{ result: string }>('/ai/compare', { ids, dimensions })
+  },
 }
+

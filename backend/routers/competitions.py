@@ -42,8 +42,13 @@ def list_competitions(
 
     total = query.count()
 
-    # 排序
-    sort_column = getattr(Competition, sort_by, Competition.created_at)
+    # 排序 — 校验排序字段
+    allowed_sort_fields = {"title", "created_at", "updated_at", "registration_end", "competition_date"}
+    if sort_by not in allowed_sort_fields:
+        raise HTTPException(status_code=400, detail=f"无效的排序字段: {sort_by}，可选: {', '.join(sorted(allowed_sort_fields))}")
+    if sort_order not in ("asc", "desc"):
+        raise HTTPException(status_code=400, detail="排序方向必须是 asc 或 desc")
+    sort_column = getattr(Competition, sort_by)
     if sort_order == "asc":
         query = query.order_by(sort_column.asc())
     else:
